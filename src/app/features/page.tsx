@@ -1,6 +1,6 @@
 import { Cpu, Shield, Sparkles } from "lucide-react";
 
-export default function FeaturesGrid() {
+export default function Features() {
   return (
     <div>
       <section className="py-20 bg-gray-50">

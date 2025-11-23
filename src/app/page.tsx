@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function Home() {
@@ -24,18 +25,16 @@ export default function Home() {
           blogs, letters, and emails in seconds, not hours.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#demo"
-            className="px-8 py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg hover:bg-indigo-700 transition shadow-lg shadow-indigo-200"
-          >
+          <Link
+            href="/demo"
+            className="px-8 py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">
             Start Writing for Free
-          </a>
-          <a
-            href="#video"
-            className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-bold text-lg hover:bg-gray-50 transition flex items-center gap-2 justify-center"
-          >
+          </Link>
+          <Link
+            href="/comparison"
+            className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-bold text-lg hover:bg-gray-50 transition flex items-center gap-2 justify-center">
             View Comparison <ArrowRight className="h-5 w-5" />
-          </a>
+          </Link>
         </div>
       </section>
     </div>

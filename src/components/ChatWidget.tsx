@@ -30,9 +30,9 @@ export default function ChatWidget() {
       const systemPrompt =
         "You are a friendly, helpful support assistant for WriteFlow. You help users with the SaaS product and give brief writing advice.";
 
-      const reply = await callGeminiAPI(fullPrompt, systemPrompt);
+      // const reply = await callGeminiAPI(fullPrompt, systemPrompt);
 
-      setMessages((prev) => [...prev, { text: reply, from: "bot" }]);
+      // setMessages((prev) => [...prev, { text: reply, from: "bot" }]);
     } catch (err) {
       setMessages((prev) => [
         ...prev,
