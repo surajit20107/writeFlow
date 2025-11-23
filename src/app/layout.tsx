@@ -33,7 +33,7 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
-        {/* <Footer /> */}
+        <Footer />
         <Script src="https://js.puter.com/v2/" />
       </body>
     </html>
