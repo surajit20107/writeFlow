@@ -15,21 +15,21 @@ export default function GenerateContent() {
   const [activeTab, setActiveTab] = useState("blog"); // blog, letter, email
   const [error, setError] = useState<string | null>(null);
 
-  // const typewriterRef = useRef<any>(null);
+  const typewriterRef = useRef<any>(null);
 
-  // const animateText = (fullText: string) => {
-  //   setOutput("");
-  //   let i = 0;
-  //   clearInterval(typewriterRef.current);
+  const animateText = (fullText: string) => {
+    setOutput("");
+    let i = 0;
+    clearInterval(typewriterRef.current);
 
-  //   typewriterRef.current = setInterval(() => {
-  //     setOutput((prev) => prev + fullText.charAt(i));
-  //     i++;
-  //     if (i >= fullText.length) {
-  //       clearInterval(typewriterRef.current);
-  //     }
-  //   }, 10); // Fast typing speed
-  // };
+    typewriterRef.current = setInterval(() => {
+      setOutput((prev) => prev + fullText.charAt(i));
+      i++;
+      if (i >= fullText.length) {
+        clearInterval(typewriterRef.current);
+      }
+    }, 10); // Fast typing speed
+  };
 
   const handleGenerate = async () => {
     if (!input.trim()) return;
@@ -51,9 +51,13 @@ export default function GenerateContent() {
     }
 
     try {
-      // const result = await callGeminiAPI(userPrompt, systemPrompt);
+      const result = await window.puter.ai.chat(systemPrompt + userPrompt, {
+        model: "gpt-5-nano",
+        // stream: true,
+      });
       setIsGenerating(false);
-      // animateText(result);
+      animateText(result);
+      console.log(result);
     } catch (err) {
       console.error(err);
       setIsGenerating(false);
