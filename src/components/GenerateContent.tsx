@@ -51,10 +51,12 @@ export default function GenerateContent() {
     }
 
     try {
-      const result = await window.puter.ai.chat(userPrompt, {
-        model: "gpt-5-nano",
-        system: systemPrompt,
-      });
+      const result = await window.puter.ai.chat(
+        `${systemPrompt}\n\n${userPrompt}`,
+        {
+          model: "gpt-5-nano",
+        }
+      );
       setIsGenerating(false);
       animateText(result);
       console.log(result);
