@@ -19,32 +19,28 @@ export default function Footer() {
               href="https://github.com/surajit20107"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-900"
-            >
+              className="hover:text-gray-900">
               GitHub
             </a>
             <a
               href="https://surajit-dev.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-900"
-            >
+              className="hover:text-gray-900">
               Portfolio
             </a>
             <a
               href=""
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-900"
-            >
+              className="hover:text-gray-900">
               Twitter
             </a>
             <a
               href=""
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-900"
-            >
+              className="hover:text-gray-900">
               LinkedIn
             </a>
           </div>

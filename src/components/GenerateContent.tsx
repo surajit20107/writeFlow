@@ -51,9 +51,9 @@ export default function GenerateContent() {
     }
 
     try {
-      const result = await window.puter.ai.chat(systemPrompt + userPrompt, {
+      const result = await window.puter.ai.chat(userPrompt, {
         model: "gpt-5-nano",
-        // stream: true,
+        system: systemPrompt,
       });
       setIsGenerating(false);
       animateText(result);
