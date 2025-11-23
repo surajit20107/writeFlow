@@ -28,15 +28,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-slate-100`}>
         <Navbar />
-          <div className="flex-grow">
-            {children}
-          </div>
-        <Footer />
-        <Script
-          src="https://js.puter.com/v2/"
-          />
+        <main className="flex-grow">
+          {children}
+        </main>
+        {/* <Footer /> */}
+        <Script src="https://js.puter.com/v2/" />
       </body>
     </html>
   );
