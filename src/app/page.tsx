@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
   return (
@@ -36,6 +37,7 @@ export default function Home() {
             View Comparison <ArrowRight className="h-5 w-5" />
           </Link>
         </div>
+        <ChatWidget />
       </section>
     </div>
   );

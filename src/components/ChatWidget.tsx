@@ -1,5 +1,18 @@
 "use client";
 import { useState } from "react";
+import {
+  MessageSquare,
+  ChevronDown,
+  X,
+  Send,
+  Sparkles,
+} from "lucide-react";
+
+declare global {
+  interface Window {
+    puter: any;
+  }
+}
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -23,16 +36,25 @@ export default function ChatWidget() {
 
     try {
       // Build a simple context string from previous messages
-      const historyContext = messages
-        .map((m) => `${m.from === "user" ? "User" : "Assistant"}: ${m.text}`)
-        .join("\n");
+      const historyContext = messages.map((m) => `${m.from === "user" ? "User" : "Assistant"}: ${m.text}`).join("\n");
       const fullPrompt = `${historyContext}\nUser: ${userMsg}\nAssistant:`;
       const systemPrompt =
         "You are a friendly, helpful support assistant for WriteFlow. You help users with the SaaS product and give brief writing advice.";
 
-      // const reply = await callGeminiAPI(fullPrompt, systemPrompt);
+      //const reply = await callGeminiAPI(fullPrompt, systemPrompt);
 
-      // setMessages((prev) => [...prev, { text: reply, from: "bot" }]);
+      const messages = [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: fullPrompt },
+      ]
+
+      const response = await window.puter.ai.chat(messages, {
+        model: "gpt-4o-nano"
+      })
+
+      const reply = response.choices[0].message.content
+
+      setMessages((prev) => [...prev, { text: reply, from: "bot" }]);
     } catch (err) {
       setMessages((prev) => [
         ...prev,
