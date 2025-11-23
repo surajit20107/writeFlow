@@ -27,6 +27,7 @@ export default function GenerateContent() {
       i++;
       if (i >= fullText.length) {
         clearInterval(typewriterRef.current);
+        setIsGenerating(false);
       }
     }, 10); // Fast typing speed
   };
@@ -54,12 +55,10 @@ export default function GenerateContent() {
       const result = await window.puter.ai.chat(
         `${systemPrompt}\n\n${userPrompt}`,
         {
-          model: "gpt-5-nano",
+          model: "gpt-5",
         }
       );
-      setIsGenerating(false);
-      animateText(result);
-      console.log(result);
+      animateText(result?.message?.content || "Error generating content.")
     } catch (err) {
       console.error(err);
       setIsGenerating(false);
