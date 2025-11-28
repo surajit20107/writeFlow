@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Features from "@/components/Features";
 
 export default function Home() {
   return (
@@ -20,15 +21,18 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/writer"
-            className="px-8 py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">
+            className="px-8 py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg hover:bg-indigo-700 transition shadow-lg shadow-indigo-200"
+          >
             Start Writing for Free
           </Link>
           <Link
             href="/comparison"
-            className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-bold text-lg hover:bg-gray-50 transition flex items-center gap-2 justify-center">
+            className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-bold text-lg hover:bg-gray-50 transition flex items-center gap-2 justify-center"
+          >
             View Comparison <ArrowRight className="h-5 w-5" />
           </Link>
         </div>
+        <Features />
       </section>
     </div>
   );
