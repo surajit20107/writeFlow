@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Zap, Sparkles, AlertCircle } from "lucide-react";
 
 declare global {
@@ -14,23 +14,6 @@ export default function GenerateContent() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [activeTab, setActiveTab] = useState("blog"); // blog, letter, email
   const [error, setError] = useState<string | null>(null);
-
-  const typewriterRef = useRef<any>(null);
-
-  const animateText = (fullText: string) => {
-    setOutput("");
-    let i = 0;
-    clearInterval(typewriterRef.current);
-
-    typewriterRef.current = setInterval(() => {
-      setOutput((prev) => prev + fullText.charAt(i));
-      i++;
-      if (i >= fullText.length) {
-        clearInterval(typewriterRef.current);
-        setIsGenerating(false);
-      }
-    }, 10); // Fast typing speed
-  };
 
   const handleGenerate = async () => {
     if (!input.trim()) return;
@@ -56,9 +39,15 @@ export default function GenerateContent() {
         `${systemPrompt}\n\n${userPrompt}`,
         {
           model: "gpt-5",
-        }
+          stream: true,
+        },
       );
-      animateText(result?.message?.content || "Error generating content.")
+
+      for await (const chunk of result) {
+        setOutput(
+          (prev) => prev + (typeof chunk === "string" ? chunk : String(chunk)),
+        );
+      }
     } catch (err) {
       console.error(err);
       setIsGenerating(false);
