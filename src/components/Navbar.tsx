@@ -24,7 +24,7 @@ export default function Navbar() {
 
                     <div className="hidden md:flex space-x-8 items-center">
                         <Link
-                            href="/writer"
+                            href="/#writer"
                             className="text-gray-600 hover:text-indigo-600 transition"
                         >
                             Start Writing
@@ -54,7 +54,7 @@ export default function Navbar() {
             {/* Mobile Menu */}
             {isOpen && (
                 <div className="md:hidden bg-white border-t p-4 space-y-4 shadow-lg">
-                    <Link href="/writer" className="block text-gray-600">
+                    <Link href="/#writer" className="block text-gray-600">
                         Start Writing
                     </Link>
                     <Link href="/pricing" className="block text-gray-600">

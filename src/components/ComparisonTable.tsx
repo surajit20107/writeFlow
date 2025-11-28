@@ -13,7 +13,7 @@ export default function ComparisonTable() {
     { feature: "Export to CMS", us: true, them: true },
   ];
   return (
-    <div className="py-20 bg-white" id="features">
+    <div className="py-20" id="features">
       <section className="max-w-4xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Why choose WriteFlow?</h2>
